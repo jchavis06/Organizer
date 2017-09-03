@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Schedule
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <h1 id="title">{{calendarTitle}}</h1>
+    <calendar id="schedule" [eventSource]="eventSource"
+      [calendarMode]="calendar.mode"
+      [currentDate]="calendar.currentDate"
+      (onCurrentDateChanged)="onCurrentDateChanged($event)"
+      (onRangeChanged)="reloadSource(startTime, endTime)"
+      (onEventSelected)="onEventSelected($event)"
+      (onTitleChanged)="onViewTitleChanged($event)"
+      (onTimeSelected)="onTimeSelected($event)"
+      step="30">
+  </calendar>
+
+  <!-- <ion-fab left bottom>
+    <button ion-fab color="dark"><ion-icon name="arrow-dropup"></ion-icon></button>
+    <ion-fab-list>
+      <button ion-fab color="light" (click)="dayMode()">Day</button>
+      <button ion-fab color="light" (click)="weekMode()">Week</button>
+      <button ion-fab color="light" (click)="monthMode()">Month</button>
+    </ion-fab-list>
+  </ion-fab> -->
+
+  <ion-fab bottom right #fab >
+      <button ion-fab><ion-icon name="keypad"></ion-icon></button>
+      <ion-fab-list side="top">
+        <button ion-fab (click)="dayMode(fab)">D</button>
+        <button ion-fab (click)="weekMode(fab)">W</button>
+        <button ion-fab (click)="monthMode(fab)">M</button>
+      </ion-fab-list>
+    </ion-fab>
+</ion-content>

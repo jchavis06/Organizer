@@ -1,0 +1,37 @@
+page-schedule {
+    #title {
+        text-align: center;
+    }
+
+    #schedule {
+        height: 90%;
+    }
+
+    .calendar-hour-column {
+        width: 11%;
+    }
+
+    .dayview-allday-label, .weekview-allday-label {
+        width: 11%;
+    }
+
+    .fab {
+        border: 1px solid black;
+        
+        background-color: blue;
+        color: white;
+    }
+
+    .monthview-selected[_ngcontent-c1] {
+        background-color: red;
+
+    }
+
+    .monthview-primary-with-event[_ngcontent-c1] {
+        background-color: blue;
+    }
+
+    .calendar-event-inner[_ngcontent-c0] {
+        background-color: blue;
+    }
+}

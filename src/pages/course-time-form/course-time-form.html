@@ -1,0 +1,38 @@
+  <!--
+    Generated template for the AddCourseTimePage page.
+
+    See http://ionicframework.com/docs/components/#navigation for more info on
+    Ionic pages and navigation.
+  -->
+  <ion-header>
+
+    <ion-navbar>
+      <ion-title>{{title}}</ion-title>
+    </ion-navbar>
+
+  </ion-header>
+
+
+  <ion-content padding>
+
+    <form (ngSubmit)="submit()">
+    <ion-item>
+      <ion-label>Week Days</ion-label>
+      <ion-select [(ngModel)]="daysOfWeek" name="daysOfWeek" multiple="true">
+        <ion-option *ngFor="let dayOfWeek of weekDays">{{dayOfWeek}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Start Time</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h:mm A" [(ngModel)]="startTime" name="startTime"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>End Time</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h:mm A" [(ngModel)]="endTime" name="endTime"></ion-datetime>
+    </ion-item>
+
+    <button ion-button block type="submit">{{title}}</button>
+    </form>
+  </ion-content>

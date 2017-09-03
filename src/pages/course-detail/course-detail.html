@@ -1,0 +1,46 @@
+<!--
+  Generated template for the CourseDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{course.title}}</ion-title>
+    <ion-buttons>
+      <button ion-button icon-only id="addAssignment" (click)="addAssignment()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+      <h2>Grade: {{course.grade}} %</h2>
+  </ion-item>
+
+  <ion-item>
+    <h2>Course start date: {{course.courseStartDate}}</h2>
+    <h2>Course end date: {{course.courseEndDate}}</h2>
+  </ion-item>
+
+
+  <ion-item *ngFor="let time of course.courseTimes">
+    <h2>{{time.daysOfWeek}}</h2>
+    <h3>{{time.startTime}} - {{time.endTime}}</h3>
+  </ion-item>
+
+  <h4 (click)="editCourse()" style="color: blue">Edit Course</h4>
+
+  <ion-label>Assignments</ion-label>
+  <button ion-item *ngFor="let assignment of assignments" (click)="goToAssignment(assignment)">
+    <h2>{{assignment.title}}</h2>
+  </button>
+
+  
+</ion-content>

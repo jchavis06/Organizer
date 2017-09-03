@@ -1,0 +1,39 @@
+<!--
+  Generated template for the TrackTimePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <form (ngSubmit)="submit()">
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime min class="border-none" min="2017" max="2018"displayFormat="MMMM D YYYY" pickerFormat="MMMM D YYYY" name="dateCompleted" [(ngModel)]="dateCompleted"></ion-datetime>
+    </ion-item>
+
+    <ion-item> 
+      <ion-label>Time Tracked</ion-label>
+      <ion-select [(ngModel)]="timeTracked" name="timeTracked">
+        <ion-option *ngFor="let time of possibleTimes">{{time}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Automatically adjust time?</ion-label>
+      <ion-checkbox color="blue" checked="false" [(ngModel)]="adjust" name="adjust"></ion-checkbox>
+    </ion-item>
+
+    <button ion-button block type="submit">Track Time</button>
+  </form>
+</ion-content>

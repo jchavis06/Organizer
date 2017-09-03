@@ -1,0 +1,62 @@
+<!--
+  Generated template for the AssignmentDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{assignment.title}}</ion-title>
+    <ion-buttons>
+        <button ion-button icon-only id="editAssignment" (click)="editAssignment()" style="float:right; margin-right: 3%">
+          <ion-icon name="hammer"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <button ion-button block (click)="trackTime()">Track Time</button>
+  <button ion-button block (click)="addGrade()" *ngIf="assignment.grade == null">Add Grade</button>
+  <ion-item>
+    <h2>Type:</h2>
+    <h4>{{assignment.type}}</h4>
+  </ion-item>
+
+  <ion-item>
+    <h2>Time Needed</h2>
+    <h4>{{assignment.timeNeeded}} hours</h4>
+  </ion-item>
+
+  <ion-item *ngIf="assignment.timeTracked > 0">
+    <h2>Time Spent</h2>
+    <h4>{{assignment.timeTracked}} hours</h4>
+  </ion-item>
+
+  <ion-item *ngIf="assignment.timeTracked == null">
+    <h2>0 Hours Spent on assignment</h2>
+  </ion-item>
+
+  <ion-item>
+    <h2>Due Date</h2>
+    <h4>{{assignment.dueDate}}</h4>
+  </ion-item>
+
+  <ion-item *ngIf="assignment.grade">
+    <h2>Grade</h2>
+    <h4>{{assignment.grade}}</h4>
+  </ion-item>
+
+  <ion-item *ngIf="assignment.grade == null">
+    <h2>No grade yet</h2>
+  </ion-item>
+
+  <ion-item *ngIf="assignment.comments">
+    <h2>Comments</h2>
+    <h4>{{assignment.comments}}</h4>
+  </ion-item>
+</ion-content>

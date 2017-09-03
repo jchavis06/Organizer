@@ -1,0 +1,58 @@
+<!--
+  Generated template for the CourseFormPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <form (ngSubmit)="submit()">
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-input type="text" [(ngModel)]="title" name="title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Start Date</ion-label>
+      <ion-datetime min="2017" max="2018" class="border-none" displayFormat="MMMM D YYYY" pickerFormat="MMMM D YYYY" name="courseStartDate" [(ngModel)]="courseStartDate"></ion-datetime>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>End Date</ion-label>
+      <ion-datetime min="2017" max="2018" class="border-none" displayFormat="MMMM D YYYY" pickerFormat="MMMM D YYYY" name="courseEndDate" [(ngModel)]="courseEndDate"></ion-datetime>
+    </ion-item>
+
+
+    <ion-item *ngFor="let courseTime of courseTimes">
+      <h3 *ngFor="let dayOfWeek of courseTime.daysOfWeek">{{dayOfWeek}}</h3>
+      <!-- <h3>Start Time: {{courseTime.startHour}}:{{courseTime.startMinutes}}></h3>
+      <h3>End Time: {{courseTime.endHour}}:{{courseTime.endMinutes}}</h3> -->
+      <h3>Start Time: {{courseTime.startTime}}</h3>
+      <h3>End Time: {{courseTime.endTime}}</h3>
+    </ion-item>
+
+    <h4 (click)="goToAddCourseTime()" style="color: blue">Add Course Time</h4>
+
+
+
+    <ion-item>
+      <ion-label>Color</ion-label>
+      <ion-select [(ngModel)]="color" name="color">
+        <ion-option *ngFor="let color of possibleColors">{{color}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <button ion-button block type="submit">{{pageTitle}}</button>
+</form>
+</ion-content>

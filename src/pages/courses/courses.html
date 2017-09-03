@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Courses
+    </ion-title>
+    <ion-buttons>
+        <button ion-button icon-only id="addAssignment" (click)="addCourse()" style="float: right; margin-right: 3%;">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <button ion-item *ngFor="let course of courses" (click)="goToCourse(course)">
+    <h1>{{course.title}}</h1>
+  </button>
+</ion-content>
